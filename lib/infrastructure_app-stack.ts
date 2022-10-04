@@ -203,7 +203,7 @@ export class InfrastructureAppStack extends cdk.Stack {
             new codepipelineactions.ManualApprovalAction({
                 actionName: 'Approve',
                 additionalInformation: 'Commit message: ' + sourceAction.variables.commitMessage,
-                externalEntityLink: 'https://console.aws.amazon.com/codesuite/codecommit/repositories/DemoApp/commit/' + sourceAction.variables.commitId + '?region=' + process.env.CDK_DEFAULT_REGION 
+                externalEntityLink: 'https://console.aws.amazon.com/codesuite/codecommit/repositories/DemoApp/commit/' + sourceAction.variables.commitId + '?region=' + buildAction.variable("AWS_DEFAULT_REGION") 
             })
         ]
     })
